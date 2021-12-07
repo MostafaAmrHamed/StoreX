@@ -1,11 +1,12 @@
 import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
+import Items from "../components/Items";
 import { product } from "../state/reducers/productsReducer";
 import { useDispatch } from "react-redux";
-import { actionCreators, store } from "../state";
+import { actionCreators } from "../state";
 import { bindActionCreators } from "redux";
 import { useEffect } from "react";
-import Link from "next/link";
+
 export default function Home({
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -14,17 +15,13 @@ export default function Home({
   useEffect(() => {
     addProduct(data);
   }, []);
-
   return (
     <div className="flex flex-col items-center justify-center py-2">
       <Head>
         <title>StoreX</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1> Home </h1>
-      <Link href="/product/1">
-        <a> Products </a>
-      </Link>
+      <Items items={data} />
     </div>
   );
 }
