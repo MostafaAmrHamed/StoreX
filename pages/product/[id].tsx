@@ -2,16 +2,17 @@ import React from "react";
 import { ParsedUrlQuery } from "querystring";
 import { product } from "../../state/reducers/productsReducer";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
-
+import Product from "../../components/Product";
 interface IdQuery extends ParsedUrlQuery {
   id: string;
 }
+
 const product = ({
   productData,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <div>
-      <h1>Product</h1>
+    <div className="ml-10">
+      <Product product={productData} />
     </div>
   );
 };
