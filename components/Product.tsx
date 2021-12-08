@@ -4,7 +4,7 @@ import Button from "./ButtonComponent";
 
 const Product: React.FC<productProps> = ({ product }) => {
   return (
-    <div>
+    <div className="flex flex-col m-auto md:w-[1440px] mt-5">
       <Button color="blue" text="Back to Products Page" link="" />
       <div className="flex flex-col items-center md:flex-row mt-5 gap-10">
         <div className="w-[250px] md:w-[450px]  pr-5">
@@ -15,15 +15,13 @@ const Product: React.FC<productProps> = ({ product }) => {
             {product.title}
           </h1>
           <p className="lg:w-1/2 leading-8">{product.description}</p>
-          <div className="flex justify-around md:justify-start md:gap-10 text-xl py-5">
+          <div className="flex justify-between md:justify-start md:gap-10 text-xl py-5">
             <h1>Price: ${product.price}</h1>
             <p>Rate: {product.rating.rate}</p>
           </div>
-          <Button
-            color="red"
-            text="Add To Cart"
-            link={`product/${product.id}`}
-          />
+          <div className="flex justify-center md:justify-start pr-5">
+            <Button color="red" text="Add To Cart" link={`cart`} />
+          </div>
         </div>
       </div>
     </div>

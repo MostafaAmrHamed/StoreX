@@ -11,7 +11,7 @@ const product = ({
   productData,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <div className="ml-10">
+    <div className="mx-5 md:ml-10">
       <Product product={productData} />
     </div>
   );
