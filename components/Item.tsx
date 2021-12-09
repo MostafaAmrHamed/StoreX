@@ -13,7 +13,7 @@ const Item: React.FC<item> = ({ id, title, rating, image, price }) => {
         <p>Rate: {rating.rate}</p>
         <p>Price: ${price}</p>
       </div>
-      <Button color="red" text="View Product" link={`product/${id}`} />
+      <Button color="red" text="View Product" link={`/product/${id}`} />
     </div>
   );
 };

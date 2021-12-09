@@ -1,6 +1,6 @@
 import React from "react";
 import { ParsedUrlQuery } from "querystring";
-import { product } from "../../state/reducers/productsReducer";
+import { product } from "../../types";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import Product from "../../components/Product";
 interface IdQuery extends ParsedUrlQuery {
