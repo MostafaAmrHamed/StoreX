@@ -21,7 +21,8 @@ export default function NavbarComponent() {
   const { filterChange } = bindActionCreators(actionCreators, dispatch);
   const state = useSelector((state: State) => state.cart);
   useEffect(() => {
-    setCartLength(JSON.parse(localStorage.getItem("cartItem")).length);
+    const cart = JSON.parse(localStorage.getItem("cartItem"));
+    if (cart) setCartLength(cart.length);
   }, [state]);
   return (
     <Navbar className="!bg-red-500" navbar>
