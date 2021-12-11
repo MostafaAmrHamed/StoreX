@@ -1,4 +1,7 @@
 enum ActionTypes {
   GETPRODUCTS = "GET_PRODCUTS",
+  ADDTOCART = "ADD_TO_CART",
+  REMOVEFROMCART = "REMOVE_FROM_CART",
+  FILTERCHANGE = "FILTER_CHANGE",
 }
 export default ActionTypes;

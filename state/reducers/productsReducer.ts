@@ -1,16 +1,7 @@
 import ActionTypes from "../actionTypes/index";
 import { productsReducerAction } from "../action";
-export type product = {
-  id: number;
-  title: string;
-  description: string;
-  category: string;
-  image: string;
-  price: number;
-  rating: {
-    rate: number;
-  };
-};
+import { product } from "../../types";
+
 const initalState: product[] = [];
 
 export const products = (

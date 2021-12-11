@@ -2,7 +2,27 @@ export interface button {
   color: string;
   text: string;
   link: string;
+  handle?: () => void;
 }
+export type cart = {
+  id: number;
+  title: string;
+  image: string;
+  price: number;
+  amount: number;
+  totalPrice: number;
+};
+export type cartProps = {
+  cart: {
+    id: number;
+    title: string;
+    image: string;
+    price: number;
+    amount: number;
+    totalPrice: number;
+  };
+};
+
 export type product = {
   id: number;
   title: string;
@@ -19,6 +39,7 @@ export type item = {
   title: string;
   image: string;
   price: number;
+  category: string;
   rating: {
     rate: number;
   };
@@ -29,6 +50,7 @@ export type itemProps = {
     title: string;
     image: string;
     price: number;
+    category: string;
     rating: {
       rate: number;
     };

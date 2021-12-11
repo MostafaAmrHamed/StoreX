@@ -1,7 +1,7 @@
 import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import Items from "../components/Items";
-import { product } from "../state/reducers/productsReducer";
+import { product } from "../types";
 import { useDispatch } from "react-redux";
 import { actionCreators } from "../state";
 import { bindActionCreators } from "redux";
@@ -19,7 +19,7 @@ export default function Home({
     <div className="flex flex-col items-center justify-center py-2">
       <Head>
         <title>StoreX</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon2.ico" />
       </Head>
       <Items items={data} />
     </div>
