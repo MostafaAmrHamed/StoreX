@@ -39,6 +39,7 @@ export type item = {
   title: string;
   image: string;
   price: number;
+  category: string;
   rating: {
     rate: number;
   };
@@ -49,6 +50,7 @@ export type itemProps = {
     title: string;
     image: string;
     price: number;
+    category: string;
     rating: {
       rate: number;
     };
