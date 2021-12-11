@@ -19,7 +19,7 @@ export default function Home({
     <div className="flex flex-col items-center justify-center py-2">
       <Head>
         <title>StoreX</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon2.ico" />
       </Head>
       <Items items={data} />
     </div>

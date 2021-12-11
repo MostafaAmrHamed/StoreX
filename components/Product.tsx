@@ -48,7 +48,7 @@ const Product: React.FC<productProps> = ({ product }) => {
               +
             </p>
           </div>
-          <div className="flex justify-center md:justify-start pr-5">
+          <div className="flex justify-center md:justify-start mt-5">
             <Button
               color="red"
               text="Add To Cart"

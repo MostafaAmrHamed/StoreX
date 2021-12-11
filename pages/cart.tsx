@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Head from "next/head";
 import Cart from "../components/Cart";
 import Button from "../components/ButtonComponent";
 import { useSelector } from "react-redux";
@@ -12,8 +13,16 @@ const cart = () => {
 
   return (
     <div className=" xl:m-auto xl:w-[1440px]">
+      <Head>
+        {items.length === 0 ? (
+          <title>Cart</title>
+        ) : (
+          <title>Cart({items.length})</title>
+        )}
+        <link rel="icon" href="/favicon2.ico" />
+      </Head>
       <div className="flex flex-col mt-5">
-        <Button color="blue" text="Return to Product Page" link="/" />
+        <Button color="blue" text="Back to Products Page" link="/" />
         <div className="hidden md:!block">
           <div className="md:grid md:grid-cols-5 md:border-b-4 border-red-400 text-center mt-5">
             <p> Product Name </p>
@@ -26,7 +35,7 @@ const cart = () => {
       <div>
         {items.length === 0 ? (
           <h1 className="text-2xl font-bold text-center mt-5">
-            There is no product in cart
+            There are no products in cart
           </h1>
         ) : (
           <div>

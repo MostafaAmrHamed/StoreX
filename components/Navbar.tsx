@@ -73,7 +73,7 @@ export default function NavbarComponent() {
                   }}
                   className="focus:outline-none text-base"
                 >
-                  Women's Clothes
+                  Women's clothing
                 </button>
               </Link>
             </NavLink>
