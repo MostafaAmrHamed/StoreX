@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "@material-tailwind/react/Navbar";
-import NavbarContainer from "@material-tailwind/react/NavbarContainer";
-import NavbarWrapper from "@material-tailwind/react/NavbarWrapper";
-import NavbarBrand from "@material-tailwind/react/NavbarBrand";
-import NavbarToggler from "@material-tailwind/react/NavbarToggler";
-import NavbarCollapse from "@material-tailwind/react/NavbarCollapse";
-import Nav from "@material-tailwind/react/Nav";
-import NavLink from "@material-tailwind/react/NavLink";
+import Toggler from "./NavbarComponents/Toggler";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
@@ -25,96 +18,129 @@ export default function NavbarComponent() {
     if (cart) setCartLength(cart.length);
   }, [state]);
   return (
-    <Navbar className="!bg-red-500" navbar>
-      <NavbarContainer>
-        <NavbarWrapper>
-          <NavbarBrand>
+    <header className="text-lg select-none bg-red-700 text-white">
+      <div className="max-w-[1440px] mx-auto">
+        <div className="flex justify-between items-center w-full py-4 px-2">
+          <div
+            id="image__container"
+            className="w-60 md:w-36 lg:w-60 cursor-pointer"
+          >
             <Link href="/">
-              <img src="/StoreX.png" width={200} className="cursor-pointer" />
+              <a>
+                <img
+                  src="/StoreX.png"
+                  alt="StoreX logo"
+                  className="w-full h-full object-contain"
+                />
+              </a>
             </Link>
-          </NavbarBrand>
-          <NavbarToggler
-            color="white"
-            onClick={() => setOpenNavbar(!openNavbar)}
-            ripple="light"
-          />
-        </NavbarWrapper>
-
-        <NavbarCollapse open={openNavbar}>
-          <Nav className="flex w-full justify-center">
-            <NavLink ripple="light">
-              <Link href="/">
-                <button
-                  onClick={() => {
-                    filterChange("all");
-                  }}
-                  className="focus:outline-none text-base"
-                >
-                  All
-                </button>
-              </Link>
-            </NavLink>
-            <NavLink ripple="light">
-              <Link href="/">
-                <button
-                  onClick={() => {
-                    filterChange("men's clothing");
-                  }}
-                  className="focus:outline-none text-base"
-                >
-                  Men's Clothing
-                </button>
-              </Link>
-            </NavLink>
-            <NavLink ripple="light">
-              <Link href="/">
-                <button
-                  onClick={() => {
-                    filterChange("women's clothing");
-                  }}
-                  className="focus:outline-none text-base"
-                >
-                  Women's clothing
-                </button>
-              </Link>
-            </NavLink>
-            <NavLink ripple="light">
-              <Link href="/">
-                <button
-                  onClick={() => {
-                    filterChange("jewelery");
-                  }}
-                  className="focus:outline-none text-base"
-                >
-                  Jewelery
-                </button>
-              </Link>
-            </NavLink>
-            <NavLink ripple="light">
-              <Link href="/">
-                <button
-                  onClick={() => {
-                    filterChange("electronics");
-                  }}
-                  className="focus:outline-none text-base"
-                >
-                  Electronics
-                </button>
-              </Link>
-            </NavLink>
-          </Nav>
-          <Nav>
-            <NavLink href="/cart" ripple="light">
+          </div>
+          <div>
+            <Toggler openNavbar={openNavbar} setOpenNavbar={setOpenNavbar} />
+            <nav className="hidden md:!block">
+              <ul className="flex gap-4 items-center">
+                <li>
+                  <Link href="/" passHref>
+                    <a onClick={() => filterChange("all")}>
+                      <h2> All </h2>
+                    </a>
+                  </Link>
+                </li>
+                <li onClick={() => filterChange("men's clothing")}>
+                  <Link href="/" passHref>
+                    <a>
+                      <h2> Men's clothing </h2>
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" passHref>
+                    <a onClick={() => filterChange("women's clothing")}>
+                      <h2> Women's clothing </h2>
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" passHref>
+                    <a onClick={() => filterChange("jewelery")}>
+                      <h2> Jewelery </h2>
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" passHref>
+                    <a onClick={() => filterChange("electronics")}>
+                      <h2> Electronics </h2>
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div className="hidden md:!block">
+            <Link href="/cart">
               <div className="flex flex-col relative">
-                <p className="absolute right-[-5px] top-[-10px] bg-blue-500 px-2 py-1 rounded-full">
+                <p className="absolute right-[-5px] top-[-10px] bg-gray-800 w-6 h-6 flex items-center justify-center rounded-full">
                   {cartLength}
                 </p>
                 <ShoppingCartIcon fontSize="large" />
               </div>
-            </NavLink>
-          </Nav>
-        </NavbarCollapse>
-      </NavbarContainer>
-    </Navbar>
+            </Link>
+          </div>
+        </div>
+
+        <nav
+          className={` ${
+            openNavbar ? "block" : "hidden"
+          } transform md:!hidden pt-5 mb-4`}
+        >
+          <ul className="flex flex-col items-center gap-4 w-full pb-5">
+            <li>
+              <Link href="/" passHref>
+                <a onClick={() => filterChange("all")}>
+                  <h2> All </h2>
+                </a>
+              </Link>
+            </li>
+            <li onClick={() => filterChange("men's clothing")}>
+              <Link href="/" passHref>
+                <a>
+                  <h2> Men's clothing </h2>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/" passHref>
+                <a onClick={() => filterChange("women's clothing")}>
+                  <h2> Women's clothing </h2>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/" passHref>
+                <a onClick={() => filterChange("jewelery")}>
+                  <h2> Jewelery </h2>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/" passHref>
+                <a onClick={() => filterChange("electronics")}>
+                  <h2> Electronics </h2>
+                </a>
+              </Link>
+            </li>
+            <Link href="/cart">
+              <div className="flex flex-col relative">
+                <p className="absolute right-[-5px] top-[-10px] bg-gray-800 w-6 h-6 flex items-center justify-center rounded-full">
+                  {cartLength}
+                </p>
+                <ShoppingCartIcon fontSize="large" />
+              </div>
+            </Link>
+          </ul>
+        </nav>
+      </div>
+    </header>
   );
 }
