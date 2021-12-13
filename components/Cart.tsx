@@ -9,7 +9,6 @@ import { actionCreators } from "../state";
 const Cart: React.FC<cartProps> = ({ cart }) => {
   const dispatch = useDispatch();
   const { removeFromCart } = bindActionCreators(actionCreators, dispatch);
-
   return (
     <div className="grid md:grid-cols-5 border-b-4 border-gray-300 text-center pb-5 items-center mt-5 mb-5">
       <Link href={`/product/${cart.id}`}>

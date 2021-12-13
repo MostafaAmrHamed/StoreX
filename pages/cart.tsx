@@ -10,7 +10,10 @@ const cart = () => {
   useEffect(() => {
     setItems(JSON.parse(localStorage.getItem("cartItem")));
   }, [data]);
-
+  useEffect(() => {
+    if (!localStorage.getItem("cartItem"))
+      localStorage.setItem("cartItem", "[]");
+  }, []);
   return (
     <div className=" xl:m-auto xl:w-[1440px]">
       <Head>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import { ParsedUrlQuery } from "querystring";
 import { product } from "../../types";
@@ -7,10 +7,13 @@ import Product from "../../components/Product";
 interface IdQuery extends ParsedUrlQuery {
   id: string;
 }
-
 const product = ({
   productData,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  useEffect(() => {
+    if (!localStorage.getItem("cartItem"))
+      localStorage.setItem("cartItem", "[]");
+  }, []);
   return (
     <div className="mx-5 md:ml-10">
       <Head>
