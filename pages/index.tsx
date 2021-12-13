@@ -14,6 +14,8 @@ export default function Home({
   const { addProduct } = bindActionCreators(actionCreators, dispatch);
   useEffect(() => {
     addProduct(data);
+    if (!localStorage.getItem("cartItem"))
+      localStorage.setItem("cartItem", "[]");
   }, []);
   return (
     <div className="flex flex-col items-center justify-center py-2">
