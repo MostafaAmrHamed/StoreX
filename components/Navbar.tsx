@@ -39,35 +39,38 @@ export default function NavbarComponent() {
             <Toggler openNavbar={openNavbar} setOpenNavbar={setOpenNavbar} />
             <nav className="hidden md:!block">
               <ul className="flex gap-4 items-center">
-                <li>
+                <li className="hover:scale-110 transition duration-500 ease-in-out">
                   <Link href="/" passHref>
                     <a onClick={() => filterChange("all")}>
                       <h2> All </h2>
                     </a>
                   </Link>
                 </li>
-                <li onClick={() => filterChange("men's clothing")}>
+                <li
+                  onClick={() => filterChange("men's clothing")}
+                  className="hover:scale-110 transition duration-500 ease-in-out"
+                >
                   <Link href="/" passHref>
                     <a>
                       <h2> Men's clothing </h2>
                     </a>
                   </Link>
                 </li>
-                <li>
+                <li className="hover:scale-110 transition duration-500 ease-in-out">
                   <Link href="/" passHref>
                     <a onClick={() => filterChange("women's clothing")}>
                       <h2> Women's clothing </h2>
                     </a>
                   </Link>
                 </li>
-                <li>
+                <li className="hover:scale-110 transition duration-500 ease-in-out">
                   <Link href="/" passHref>
                     <a onClick={() => filterChange("jewelery")}>
                       <h2> Jewelery </h2>
                     </a>
                   </Link>
                 </li>
-                <li>
+                <li className="hover:scale-110 transition duration-500 ease-in-out">
                   <Link href="/" passHref>
                     <a onClick={() => filterChange("electronics")}>
                       <h2> Electronics </h2>
@@ -77,10 +80,10 @@ export default function NavbarComponent() {
               </ul>
             </nav>
           </div>
-          <div className="hidden md:!block">
+          <div className="hidden md:!block hover:scale-110 transition duration-500 ease-in-out">
             <Link href="/cart">
               <div className="flex flex-col relative">
-                <p className="absolute right-[-5px] top-[-10px] bg-gray-800 w-6 h-6 flex items-center justify-center rounded-full">
+                <p className=" absolute right-[-5px] top-[-10px] bg-gray-800 w-6 h-6 flex items-center justify-center rounded-full">
                   {cartLength}
                 </p>
                 <ShoppingCartIcon fontSize="large" />
